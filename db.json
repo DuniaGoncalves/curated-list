@@ -1,0 +1,54 @@
+{
+  "companies": [
+    {
+      "name": "Tech Innovators",
+      "pointOfContact": {
+        "person": "Alice Johnson",
+        "email": "alice.johnson@techinnovators.com",
+        "phone": "555-123-4567"
+      },
+      "website": "http://www.techinnovators.com",
+      "work_options": "remote"
+    },
+    {
+      "name": "Creative Solutions",
+      "pointOfContact": {
+        "person": "Bob Smith",
+        "email": "bob.smith@creativesolutions.com",
+        "phone": "555-234-5678"
+      },
+      "website": "http://www.creativesolutions.com",
+      "work_options": "hybrid"
+    },
+    {
+      "name": "Global Enterprises",
+      "pointOfContact": {
+        "person": "Carol White",
+        "email": "carol.white@globalenterprises.com",
+        "phone": "555-345-6789"
+      },
+      "website": "http://www.globalenterprises.com",
+      "work_options": "in_person"
+    },
+    {
+      "name": "NextGen Tech",
+      "pointOfContact": {
+        "name": "David Brown",
+        "email": "david.brown@nextgentech.com",
+        "phone": "555-456-7890"
+      },
+      "website": "http://www.nextgentech.com",
+      "work_options": "remote"
+    },
+    {
+      "name": "Innovative Solutions",
+      "pointOfContact": {
+        "person": "Eve Davis",
+        "email": "eve.davis@innovativesolutions.com",
+        "phone": "555-567-8901"
+      },
+      "website": "http://www.innovativesolutions.com",
+      "work_options": "hybrid"
+    }
+  ]
+}
