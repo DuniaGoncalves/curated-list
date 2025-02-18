@@ -6,16 +6,19 @@ import { Company } from './components/Company'
 // function to delete company
 // functiont to filter company
 
-
 const App = () => {
   const [companies, setCompanies] = useState([])
   const [newCompany, setNewCompany] = useState('')
 
   useEffect(() => {
     console.log('effect')
-    axios.get('http://localhost:3001/companies').then((response) => {
+    axios.get('http://localhost:3001/companies')
+      .then((response) => {
       console.log('promise fulfilled')
       setCompanies(response.data)
+    })
+    .catch(error => {
+      console.error('error fetching data', error)
     })
   }, [])
   console.log('render', companies.length, 'companies')
@@ -24,19 +27,28 @@ const App = () => {
     event.preventDefault()
     
     const companyObject = {
-      name: newCompany,
-      website: 'http://example.com', // Add appropriate website URL
+      name: newCompany.name,
+      website: newCompany.website, 
       pointOfContact: {
-        name: 'John Doe', // Add appropriate point of contact name
-        email: 'john.doe@example.com', // Add appropriate point of contact email
-        phone: '123-456-7890' // Add appropriate point of contact phone number
+        person: newCompany.pointOfContact.person, 
+        email: newCompany.pointOfContact.email, 
+        phone: newCompany.pointOfContact.phone 
       },
+      workOptions: newCompany.workOptions,
       id: String(companies.length + 1),
     }
-    setCompanies(companies.concat(companyObject))
-    setNewCompany('')
+
+    axios.post('http://localhost:3001/companies', companyObject)
+    .then(response => {
+      setCompanies(companies.concat(response.data))
+      setNewCompany('')
+    })
+    .catch(error => {
+      console.error('error adding company', error)
+    })
   }
 
+  const display = () => console.log(companyObject);
   const handleCompanyChange = (event) => {
     setNewCompany(event.target.value)
   }
@@ -50,8 +62,50 @@ const App = () => {
         )}
       </ul>
       <form onSubmit={addCompany}>
-        <input value={newCompany} onChange={handleCompanyChange} />
-        <button type="submit">save</button>
+        <label>Company Name:</label>
+        <input 
+          value={newCompany.name} 
+          onChange={handleCompanyChange}
+          placeholder='Company Name'
+          name="name"
+        />
+        <label>Website: </label>
+        <input 
+          value={newCompany.website} 
+          onChange={handleCompanyChange}
+          placeholder='Company Website'
+          name="website"
+        />
+        <label>Contact: </label>
+        <input 
+          value={newCompany.pointOfContact.person} 
+          onChange={handleCompanyChange}
+          placeholder='Contact Person'
+          name="person"
+          type='text'
+        />
+        <input 
+          value={newCompany.pointOfContact.email} 
+          onChange={handleCompanyChange}
+          placeholder='Email Address'
+          name='email'
+          type='email'
+        />
+        <input 
+          value={newCompany.pointOfContact.phone} 
+          onChange={handleCompanyChange}
+          placeholder='Phone Number'
+          name='phone'
+          type='tel'
+        />
+        <input 
+          value={newCompany.workOptions} 
+          onChange={handleCompanyChange}
+          placeholder='Company Work Option'
+          name="workOptions"
+        />
+
+        <button onClick={display}>save</button>
       </form>
     </>
   )

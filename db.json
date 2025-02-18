@@ -8,7 +8,8 @@
         "phone": "555-123-4567"
       },
       "website": "http://www.techinnovators.com",
-      "work_options": "remote"
+      "workOptions": "remote",
+      "id": "b43f"
     },
     {
       "name": "Creative Solutions",
@@ -18,7 +19,8 @@
         "phone": "555-234-5678"
       },
       "website": "http://www.creativesolutions.com",
-      "work_options": "hybrid"
+      "workOptions": "hybrid",
+      "id": "b054"
     },
     {
       "name": "Global Enterprises",
@@ -28,17 +30,19 @@
         "phone": "555-345-6789"
       },
       "website": "http://www.globalenterprises.com",
-      "work_options": "in_person"
+      "workOptions": "in_person",
+      "id": "08ec"
     },
     {
       "name": "NextGen Tech",
       "pointOfContact": {
-        "name": "David Brown",
+        "person": "David Brown",
         "email": "david.brown@nextgentech.com",
         "phone": "555-456-7890"
       },
       "website": "http://www.nextgentech.com",
-      "work_options": "remote"
+      "workOptions": "remote",
+      "id": "1a18"
     },
     {
       "name": "Innovative Solutions",
@@ -48,7 +52,30 @@
         "phone": "555-567-8901"
       },
       "website": "http://www.innovativesolutions.com",
-      "work_options": "hybrid"
+      "workOptions": "hybrid",
+      "id": "65b6"
+    },
+    {
+      "id": "6",
+      "name": "Dunder Mifflin",
+      "website": "www.dundermifflin.com",
+      "pointOfContact": {
+        "person": "Michael Scott",
+        "email": "michaelscott@dundermifflin.com",
+        "phone": 123456789
+      },
+      "workOptions": "hybrid"
+    },
+    {
+      "id": "7",
+      "name": "Dunder Mifflin",
+      "website": "www.dundermifflin.com",
+      "pointOfContact": {
+        "person": "Michael Scott",
+        "email": "michaelscott@dundermifflin.com",
+        "phone": 123456789
+      },
+      "workOptions": "hybrid"
     }
   ]
 }
