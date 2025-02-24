@@ -98,6 +98,17 @@
         "phone": "885555555s"
       },
       "workOptions": "inPerson"
+    },
+    {
+      "id": "4",
+      "name": "HelloWorld",
+      "website": "helloworld.com",
+      "pointOfContact": {
+        "person": "Atlas",
+        "email": "Atlas@helloworld.com",
+        "phone": "5555555555"
+      },
+      "workOptions": "inPerson"
     }
   ]
 }
