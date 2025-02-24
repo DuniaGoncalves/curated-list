@@ -76,6 +76,17 @@
         "phone": 123456789
       },
       "workOptions": "hybrid"
+    },
+    {
+      "id": "a822",
+      "name": "Connective Bond Homes",
+      "website": "test.com",
+      "pointOfContact": {
+        "person": "Dunia Goncalves",
+        "email": "test@test.com",
+        "phone": "555555555555555"
+      },
+      "workOptions": "hybrid"
     }
   ]
 }
