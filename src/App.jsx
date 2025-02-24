@@ -46,10 +46,21 @@ const App = () => {
       id: String(companies.length + 1),
     };
 
-
-    setCompanies([...companies, companyObject]);
-
-    // Reset the form
+    axios.post('http://localhost:3001/companies', companyObject)
+      .then(response => {
+        setCompanies([...companies, companyObject]);
+        console.log('Data posted:', response.data);
+        setNewCompany({
+          name: '',
+          website: '',
+          pointOfContact: { person: '', email: '', phone: '' },
+          workOptions: ''
+        });
+      })
+      .catch(error => {
+        console.error('Error adding company:', error);
+      });
+    
     setNewCompany({
       name: '',
       website: '',
@@ -57,12 +68,10 @@ const App = () => {
       workOptions: '',
     });
   };
-
-  // Delete a company
+  
   const deleteCompany = (id) => {setCompanies(companies.filter((company) => company.id !== id))}
 
 
-  // Filter companies based on the search input
   const filteredCompanies = companies.filter((company) =>
     company.workOptions.toLowerCase().includes(filter.toLowerCase())
   );
@@ -71,16 +80,16 @@ const App = () => {
     <>
       <h2>Curated HitList</h2>
 
-      {/* Filter input */}
-      <input
-        type="text"
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
-        placeholder="Search by work options
-      "
-      />
+      <section>
+        <input
+          type="text"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Search by work options
+        "
+        />
+      </section>
 
-      {/* Company list */}
       <section>
         {filteredCompanies.map((company) => (
           <Company key={company.id} company={company} onDelete={deleteCompany} />
@@ -89,7 +98,6 @@ const App = () => {
 
       <h3>Add a New Company</h3>
 
-      {/* Form to add new companies */}
       <form onSubmit={addCompany}>
         <input
           type="text"

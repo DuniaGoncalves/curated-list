@@ -87,6 +87,17 @@
         "phone": "555555555555555"
       },
       "workOptions": "hybrid"
+    },
+    {
+      "id": "8",
+      "name": "hello",
+      "website": "hello.com",
+      "pointOfContact": {
+        "person": "Helen",
+        "email": "helen@hello.com",
+        "phone": "885555555s"
+      },
+      "workOptions": "inPerson"
     }
   ]
 }
