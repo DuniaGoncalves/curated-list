@@ -109,6 +109,39 @@
         "phone": "5555555555"
       },
       "workOptions": "inPerson"
+    },
+    {
+      "id": "11",
+      "name": "test",
+      "website": "test.com",
+      "pointOfContact": {
+        "person": "test",
+        "email": "test@test.com",
+        "phone": "5555555555"
+      },
+      "workOptions": "inPerson"
+    },
+    {
+      "id": "12",
+      "name": "",
+      "website": "",
+      "pointOfContact": {
+        "person": "",
+        "email": "",
+        "phone": ""
+      },
+      "workOptions": "remote"
+    },
+    {
+      "id": "13",
+      "name": "",
+      "website": "",
+      "pointOfContact": {
+        "person": "",
+        "email": "",
+        "phone": ""
+      },
+      "workOptions": "remote"
     }
   ]
 }

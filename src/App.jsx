@@ -1,7 +1,13 @@
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 import Company from './components/Company';
+import Form from 'react-bootstrap/Form';
+import FormGroup from './components/FormGroup';
+import Row from 'react-bootstrap/Row';
 
 const App = () => {
   const [companies, setCompanies] = useState([]);
@@ -68,7 +74,7 @@ const App = () => {
       workOptions: '',
     });
   };
-  
+
   const deleteCompany = (id) => {setCompanies(companies.filter((company) => company.id !== id))}
 
 
@@ -81,78 +87,80 @@ const App = () => {
       <h2>Curated HitList</h2>
 
       <section>
-        <input
+        <FormGroup 
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Search by work options"
           type="text"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          placeholder="Search by work options
-        "
         />
       </section>
 
-      <section>
-        {filteredCompanies.map((company) => (
-          <Company key={company.id} company={company} onDelete={deleteCompany} />
-        ))}
-      </section>
+        <Row xs={1} md={2} className="g-4">
+          {filteredCompanies.map((company) => (
+            <Col key={company.id}>.
+              <Company key={company.id} company={company} onDelete={deleteCompany} />
+            </Col>
+          ))}
+        </Row>
 
-      <h3>Add a New Company</h3>
-
-      <form onSubmit={addCompany}>
-        <input
-          type="text"
-          name="name"
-          value={newCompany.name}
-          onChange={handleChange}
-          placeholder="Company Name"
-          required
-        />
-        <input
-          type="text"
-          name="website"
-          value={newCompany.website}
-          onChange={handleChange}
-          placeholder="Website URL"
-          required
-        />
-        <input
-          type="text"
-          name="person"
-          value={newCompany.pointOfContact.person}
-          onChange={handleChange}
-          placeholder="Point of Contact Name"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          value={newCompany.pointOfContact.email}
-          onChange={handleChange}
-          placeholder="Contact Email"
-          required
-        />
-        <input
-          type="text"
-          name="phone"
-          value={newCompany.pointOfContact.phone}
-          onChange={handleChange}
-          placeholder="Contact Phone"
-          required
-          maxLength={10}
-        />
-        <select
-          name="workOptions"
-          value={newCompany.workOptions}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select Work Option</option>
-          <option value="remote">Remote</option>
-          <option value="hybrid">Hybrid</option>
-          <option value="inPerson">In Person</option>
-        </select>
-        <button type="submit">Save</button>
-      </form>
+          <h3>Add a New Company</h3>
+          <Form onSubmit={addCompany}>
+            <FormGroup 
+              controlId="name"
+              label="Company Name"
+              onChange={handleChange}
+              required
+              type="text"
+              value={newCompany.name}
+            />
+            <FormGroup 
+              controlId="website"
+              label="Website URL"
+              onChange={handleChange}
+              required
+              type="text"
+              value={newCompany.website}
+            />
+            <FormGroup 
+              controlId="person"
+              label="Contact Person"
+              onChange={handleChange}
+              required
+              type="text"
+              value={newCompany.pointOfContact.person}
+            />
+            <FormGroup 
+              controlId="email"
+              label="Email Address"
+              onChange={handleChange}
+              type="email"
+              value={newCompany.pointOfContact.email}
+            />
+            <FormGroup 
+              controlId="phone"
+              label="Phone Number"
+              onChange={handleChange}
+              type="text"
+              value={newCompany.pointOfContact.phone}
+            />
+            <Form.Select 
+              name="workOptions"
+              value={newCompany.workOptions}
+              onChange={handleChange}
+            >
+              <option>Select Work Options</option>
+              <option value="remote">Remote</option>
+              <option value="hybrid">Hybrid</option>
+              <option value="inPerson">In Person</option>
+            </Form.Select>
+            <Button 
+              as="input" 
+              size="lg" 
+              type="submit" 
+              value="Submit Form"
+              variant="primary" 
+            />
+          </Form>
     </>
   );
 };
